@@ -1102,9 +1102,9 @@ camelcase@^2.0.0, camelcase@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-2.1.1.tgz#7c1d16d679a1bbe59ca02cacecfb011e201f5a1f"
 
-carto@CartoDB/carto#master:
+"carto@github:cartodb/carto#master":
   version "0.15.1-cdb1"
-  resolved "https://codeload.github.com/CartoDB/carto/tar.gz/f17aea8657ea27f2a660db15dd13b57127e823f9"
+  resolved "https://codeload.github.com/cartodb/carto/tar.gz/f17aea8657ea27f2a660db15dd13b57127e823f9"
   dependencies:
     mapnik-reference "~6.0.2"
     optimist "~0.6.0"
@@ -4060,9 +4060,9 @@ syntax-error@^1.1.1:
   dependencies:
     acorn "^2.7.0"
 
-tangram-cartocss@CartoDB/tangram-carto#master:
-  version "0.2.1"
-  resolved "https://codeload.github.com/CartoDB/tangram-carto/tar.gz/2dea3660805e2800c4b96c60db525dac64dde095"
+tangram-cartocss@0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/tangram-cartocss/-/tangram-cartocss-0.2.2.tgz#b2a47187ca15b47d7140c0bd25482b0d58e93815"
   dependencies:
     babel-runtime "6.11.6"
     carto CartoDB/carto#master

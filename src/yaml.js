@@ -33,23 +33,13 @@ const getBaseProperties = function getBaseProperties() {
       }
     },
 
-    scene: {
-      background: {
-        color: ''
-      }
-    },
-
     fonts: {
       Montserrat: {
         url: 'https://fonts.gstatic.com/s/montserrat/v7/zhcz-_WihjSQC0oHJ9TCYL3hpw3pgy2gAi-Ip7WPMi0.woff'
       }
     },
 
-    sources: {},
-
-    layers: {},
-
-    styles: {}
+    layers: {}
   };
 };
 
@@ -58,7 +48,7 @@ const generateYAML = function () {
 };
 
 const getBaseFile = function () {
-  return URL.createObjectURL( new Blob( [ string ] ) );
+  return URL.createObjectURL( new Blob( [ generateYAML() ] ) );
 };
 
 var yaml;

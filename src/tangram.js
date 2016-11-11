@@ -23,14 +23,14 @@ var generateSources = function generateSources(url) {
 var TC = function (map) {
   this.scene = Tangram.leafletLayer({
     scene: yaml.getBaseFile()
-  });
+  }).addTo(map).scene;
 };
 
 TC.prototype = {
   addLayer: function (layer) {
     let ly = {
       data: {
-        layer: layer.id,
+        layer: 'layer' + layer.source.match(/\d/g)[0],
         source: 'CartoDB'
       },
       draw: CCSS.carto2Draw(layer.meta.cartocss)
