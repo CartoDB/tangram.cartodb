@@ -21,9 +21,22 @@ var generateSources = function generateSources(url) {
 };
 
 var TC = function (map) {
+  let self = this;
   this.scene = Tangram.leafletLayer({
     scene: yaml.getBaseFile()
   }).addTo(map).scene;
+
+  this.scene.subscribe({
+    load: (e) => {
+      console.log('Loaded', e);
+      if (this.scene.initialized) {
+        self.scene.updateConfig();
+      }
+      else {
+        setTimeout(() => this.scene.updateConfig(), 50);
+      }
+    }
+  });
 };
 
 TC.prototype = {
@@ -48,8 +61,8 @@ TC.prototype = {
       this.scene.config.textures,
       config.textures
     );
-
-    this.scene.updateConfig();
+    
+    this.scene.updateConfig({rebuild: true});
   },
 
   addDataSource: function (url) {

@@ -14,24 +14,24 @@ const getBaseProperties = function getBaseProperties() {
     global: {
       language: 'en'
     },
-    cameras: {
-      flat: {
-        type: 'flat',
-        active: true
+    fonts: {
+      Montserrat: {
+        url: 'https://fonts.gstatic.com/s/montserrat/v7/zhcz-_WihjSQC0oHJ9TCYL3hpw3pgy2gAi-Ip7WPMi0.woff'
       }
     },
+    layers: {},
     styles: {
         polygons_blend: {
             base: 'polygons',
-            blend: 'depthinlay'
+            blend: 'overlay'
         },
         lines_blend: {
             base: 'lines',
-            blend: 'depthinlay'
+            blend: 'overlay'
         },
         points_blend: {
             base: 'points',
-            blend: 'depthinlay'
+            blend: 'overlay'
         }
     }
   };
