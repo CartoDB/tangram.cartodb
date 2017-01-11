@@ -14,13 +14,12 @@ const getBaseProperties = function getBaseProperties() {
     global: {
       language: 'en'
     },
-    fonts: {
-      Montserrat: {
-        url: 'https://fonts.gstatic.com/s/montserrat/v7/zhcz-_WihjSQC0oHJ9TCYL3hpw3pgy2gAi-Ip7WPMi0.woff'
+    cameras: {
+      flat: {
+        type: 'flat',
+        active: true
       }
     },
-
-    layers: {},
     styles: {
         polygons_blend: {
             base: 'polygons',

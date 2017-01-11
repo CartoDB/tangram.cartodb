@@ -28,15 +28,27 @@ var TC = function (map) {
 
 TC.prototype = {
   addLayer: function (layer) {
+    let config = CCSS.carto2Draw(layer.meta.cartocss);
     let ly = {
       data: {
-        layer: 'layer' + layer.source.match(/\d/g)[0],
+        layer: layer.id,
         source: 'CartoDB'
       },
-      draw: CCSS.carto2Draw(layer.meta.cartocss)
+      draw: config.draw
     };
 
-    this.scene.config.layers[layer.layer_name] = ly;
+    this.scene.config.layers[layer.id] = ly;
+
+    Object.assign(
+      this.scene.config.styles,
+      config.styles
+    );
+
+    Object.assign(
+      this.scene.config.textures,
+      config.textures
+    );
+
     this.scene.updateConfig();
   },
 
