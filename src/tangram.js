@@ -21,23 +21,48 @@ var generateSources = function generateSources(url) {
 };
 
 var TC = function (map) {
+  let self = this;
   this.scene = Tangram.leafletLayer({
     scene: yaml.getBaseFile()
   }).addTo(map).scene;
+
+  this.scene.subscribe({
+    load: (e) => {
+      console.log('Loaded', e);
+      if (this.scene.initialized) {
+        self.scene.updateConfig();
+      }
+      else {
+        setTimeout(() => this.scene.updateConfig(), 50);
+      }
+    }
+  });
 };
 
 TC.prototype = {
   addLayer: function (layer) {
+    let config = CCSS.carto2Draw(layer.meta.cartocss);
     let ly = {
       data: {
-        layer: 'layer' + layer.source.match(/\d/g)[0],
+        layer: layer.id,
         source: 'CartoDB'
       },
-      draw: CCSS.carto2Draw(layer.meta.cartocss)
+      draw: config.draw
     };
 
-    this.scene.config.layers[layer.layer_name] = ly;
-    this.scene.updateConfig();
+    this.scene.config.layers[layer.id] = ly;
+
+    Object.assign(
+      this.scene.config.styles,
+      config.styles
+    );
+
+    Object.assign(
+      this.scene.config.textures,
+      config.textures
+    );
+    
+    this.scene.updateConfig({rebuild: true});
   },
 
   addDataSource: function (url) {

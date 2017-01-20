@@ -1,0 +1,9 @@
+global:
+  language: en
+cameras:
+  flat:
+    type: flat
+    active: true
+styles:
+secene:
+  animated: false
