@@ -49,8 +49,7 @@
   "license": "MIT",
   "dependencies": {
     "babel-runtime": "6.18.0",
-    "tangram-cartocss": "0.2.21",
-    "yamljs": "^0.2.8"
+    "tangram-cartocss": "cartodb/tangram-cartocss#master"
   },
   "devDependencies": {
     "babel-plugin-transform-runtime": "6.12.0",
