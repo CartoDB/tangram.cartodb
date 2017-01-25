@@ -47,7 +47,8 @@ TC.prototype = {
         layer: layer.id,
         source: 'CartoDB'
       },
-      draw: config.draw
+      draw: config.draw,
+      visible: layer.visible
     };
 
     this.scene.config.layers[layer.id] = ly;
@@ -61,7 +62,7 @@ TC.prototype = {
       this.scene.config.textures,
       config.textures
     );
-    
+
     this.scene.updateConfig({rebuild: true});
   },
 
