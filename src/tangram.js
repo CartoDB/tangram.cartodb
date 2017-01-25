@@ -25,9 +25,9 @@ var TC = function (map) {
 
   this.scene.subscribe({
     load: (e) => {
-      console.log('Loaded', e);
+
       if (this.scene.initialized) {
-        self.scene.updateConfig();
+        this.scene.updateConfig();
       }
       else {
         setTimeout(() => this.scene.updateConfig(), 50);

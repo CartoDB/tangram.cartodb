@@ -1,4 +1,4 @@
-let yamljs = require('yamljs');
+import yamljs from 'yamljs';
 
 const SOURCES = {
     mapnik: {
