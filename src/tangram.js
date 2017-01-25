@@ -3,10 +3,7 @@ import yaml from './yaml';
 
 var SOURCES = {
     mapnik: {
-        type: 'MVT',
-        url: function( url ) {
-            return url.replace('{layerIndexes}', 'mapnik').replace('.png', '.mvt');
-        }
+        type: 'MVT'
     }
 };
 
@@ -16,7 +13,7 @@ var generateSources = function generateSources(url) {
 
   return {
     type: source.type,
-    url: source.url( url )
+    url: url
   };
 };
 
@@ -41,7 +38,7 @@ var TC = function (map) {
 
 TC.prototype = {
   addLayer: function (layer) {
-    let config = CCSS.carto2Draw(layer.meta.cartocss);
+    let config = CCSS.carto2Draw(layer.cartocss || layer.meta.cartocss);
     let ly = {
       data: {
         layer: layer.id,
