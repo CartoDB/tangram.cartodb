@@ -38,7 +38,7 @@ var TC = function (map) {
 
 TC.prototype = {
   addLayer: function (layer) {
-    let config = CCSS.carto2Draw(layer.cartocss || layer.meta.cartocss);
+    let config = CCSS.carto2Draw(layer.meta.cartocss);
     let ly = {
       data: {
         layer: layer.id,
