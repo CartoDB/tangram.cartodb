@@ -31,7 +31,7 @@
     "build": "npm run build-bundle -- -o dist/trangram.cartodb.debug.js && npm run build-minify",
     "build-test": "npm run build-bundle -- -o dist/trangram.cartodb.test.js",
     "build-debug": "npm run build-bundle -- -o dist/trangram.cartodb.debug.js",
-    "build-bundle": "$(npm bin)/browserify src/module.js -t [ babelify --presets [ es2015 ] --plugins transform-runtime ] -t brfs -s TangramCarto -p browserify-derequire --debug",
+    "build-bundle": "$(npm bin)/browserify src/module.js -t [ babelify --presets [ es2015 ] --plugins transform-runtime ] -t brfs --s TangramCarto -p browserify-derequire --debug",
     "build-minify": "$(npm bin)/uglifyjs dist/trangram.cartodb.debug.js -c warnings=false -m -o dist/trangram.cartodb.min.js && npm run build-size",
     "build-size": "gzip dist/trangram.cartodb.min.js -c | wc -c | awk '{kb=$1/1024; print kb}' OFMT='%.0fk minified+gzipped'",
     "watch": "$(npm bin)/budo src/module.js:dist/trangram.cartodb.debug.js --port 8000 --cors --live -- -t [ babelify --presets [ es2015 ] --plugins transform-runtime ] -t brfs -s TangramCarto"
