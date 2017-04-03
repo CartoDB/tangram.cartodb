@@ -1,5 +1,6 @@
 import CCSS from 'tangram-cartocss';
 import yaml from './yaml';
+import md5 from 'md5';
 
 var SOURCES = {
     mapnik: {
@@ -25,7 +26,6 @@ var TC = function (map) {
 
   this.scene.subscribe({
     load: (e) => {
-
       if (this.scene.initialized) {
         this.scene.updateConfig();
       }
@@ -39,26 +39,31 @@ var TC = function (map) {
 TC.prototype = {
   addLayer: function (layer, i) {
     let config = CCSS.carto2Draw(layer.meta.cartocss, i);
-    let ly = {
-      data: {
-        layer: layer.id,
-        source: 'CartoDB'
-      },
-      draw: config.draw,
-      visible: layer.visible
-    };
 
-    this.scene.config.layers[layer.id] = ly;
+    config.forEach(l => {
+      let ly = {
+        data: {
+          layer: layer.id,
+          source: 'CartoDB'
+        },
+        draw: l.draw,
+        visible: layer.visible
+      };
 
-    Object.assign(
-      this.scene.config.styles,
-      config.styles
-    );
+      const layerName = md5(layer.id + l.name);
 
-    Object.assign(
-      this.scene.config.textures,
-      config.textures
-    );
+      this.scene.config.layers[layerName] = ly;
+
+      Object.assign(
+        this.scene.config.styles,
+        l.styles
+      );
+
+      Object.assign(
+        this.scene.config.textures,
+        l.textures
+      );
+    });
 
     this.scene.updateConfig({rebuild: true});
   },

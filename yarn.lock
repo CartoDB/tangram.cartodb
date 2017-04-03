@@ -2870,7 +2870,7 @@ mapnik-reference@~6.0.2:
   version "6.0.5"
   resolved "https://registry.yarnpkg.com/mapnik-reference/-/mapnik-reference-6.0.5.tgz#d52319e1df88e5a07a811e84def2a1a423b6f05f"
 
-md5@2.2.1:
+md5@2.2.1, md5@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/md5/-/md5-2.2.1.tgz#53ab38d5fe3c8891ba465329ea23fac0540126f9"
   dependencies:
