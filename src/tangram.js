@@ -8,13 +8,14 @@ var SOURCES = {
     }
 };
 
-var generateSources = function generateSources(url) {
+var generateSources = function generateSources(url, subdomains) {
   // TODO: make this dynamic if it is neccessary
   var source = SOURCES['mapnik'];
 
   return {
     type: source.type,
-    url: url
+    url: url,
+    url_subdomains: subdomains
   };
 };
 
@@ -76,8 +77,8 @@ TC.prototype = {
     this.scene.updateConfig({rebuild: true});
   },
 
-  addDataSource: function (url) {
-    this.scene.setDataSource('CartoDB', generateSources(url));
+  addDataSource: function (url, subdomains) {
+    this.scene.setDataSource('CartoDB', generateSources(url, subdomains));
   }
 };
 
