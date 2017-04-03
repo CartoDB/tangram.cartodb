@@ -37,6 +37,14 @@ var TC = function (map) {
 };
 
 TC.prototype = {
+  onLoaded: function (cb) {
+    this.scene.subscribe({
+      view_complete: function () {
+        cb();
+      }
+    });
+  },
+
   addLayer: function (layer, i) {
     let config = CCSS.carto2Draw(layer.meta.cartocss, i);
 
