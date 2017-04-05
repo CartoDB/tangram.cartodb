@@ -19,21 +19,14 @@ var generateSources = function generateSources(url, subdomains) {
   };
 };
 
-var TC = function (map) {
+var TC = function (map, cb) {
   let self = this;
   this.scene = Tangram.leafletLayer({
     scene: yaml.getBaseFile()
   }).addTo(map).scene;
 
   this.scene.subscribe({
-    load: (e) => {
-      if (this.scene.initialized) {
-        this.scene.updateConfig();
-      }
-      else {
-        setTimeout(() => this.scene.updateConfig(), 50);
-      }
-    }
+    load: cb
   });
 };
 
