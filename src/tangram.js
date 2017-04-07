@@ -8,31 +8,25 @@ var SOURCES = {
     }
 };
 
-var generateSources = function generateSources(url) {
+var generateSources = function generateSources(url, subdomains) {
   // TODO: make this dynamic if it is neccessary
   var source = SOURCES['mapnik'];
 
   return {
     type: source.type,
-    url: url
+    url: url,
+    url_subdomains: subdomains
   };
 };
 
-var TC = function (map) {
+var TC = function (map, cb) {
   let self = this;
   this.scene = Tangram.leafletLayer({
     scene: yaml.getBaseFile()
   }).addTo(map).scene;
 
   this.scene.subscribe({
-    load: (e) => {
-      if (this.scene.initialized) {
-        this.scene.updateConfig();
-      }
-      else {
-        setTimeout(() => this.scene.updateConfig(), 50);
-      }
-    }
+    load: cb
   });
 };
 
@@ -76,8 +70,8 @@ TC.prototype = {
     this.scene.updateConfig({rebuild: true});
   },
 
-  addDataSource: function (url) {
-    this.scene.setDataSource('CartoDB', generateSources(url));
+  addDataSource: function (url, subdomains) {
+    this.scene.setDataSource('CartoDB', generateSources(url, subdomains));
   }
 };
 
