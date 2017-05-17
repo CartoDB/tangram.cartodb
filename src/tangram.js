@@ -21,13 +21,19 @@ var generateSources = function generateSources(url, subdomains) {
 
 var TC = function (map, cb) {
   let self = this;
-  this.scene = Tangram.leafletLayer({
+  this.layer = Tangram.leafletLayer({
     scene: yaml.getBaseFile()
-  }).addTo(map).scene;
+  }).addTo(map);
+
+  this.scene = this.layer.scene;
 
   this.scene.subscribe({
-    load: cb
+    load: () => {
+      this.scene.setIntrospection(true);
+      cb();
+    }
   });
+
 };
 
 TC.prototype = {
@@ -37,6 +43,10 @@ TC.prototype = {
         cb();
       }
     });
+  },
+
+  addEvents: (ev) => {
+    this.tangramLayer.setSelectionEvents(ev);
   },
 
   addLayer: function (layer, i) {
