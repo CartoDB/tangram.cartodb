@@ -34,7 +34,7 @@
     "build-bundle": "$(npm bin)/browserify src/module.js -t [ babelify --presets [ es2015 ] --plugins transform-runtime ] -t brfs -s TangramCarto -p browserify-derequire --debug",
     "build-minify": "$(npm bin)/uglifyjs dist/tangram.cartodb.debug.js -c warnings=false -m -o dist/tangram.cartodb.min.js && npm run build-size",
     "build-size": "gzip dist/tangram.cartodb.min.js -c | wc -c | awk '{kb=$1/1024; print kb}' OFMT='%.0fk minified+gzipped'",
-    "watch": "$(npm bin)/budo src/module.js:dist/tangram.cartodb.debug.js --port 8000 --cors --live -- -t [ babelify --presets [ es2015 ] --plugins transform-runtime ] -t brfs -s TangramCarto"
+    "watch": "$(npm bin)/budo src/module.js:dist/tangram.cartodb.debug.js demos/main.js:dist/main.js --port 8000 --cors --live -- -t [ babelify --presets [ es2015 ] --plugins transform-runtime ] -t brfs -s TangramCarto"
   },
   "author": {
     "name": "Carto",
@@ -51,6 +51,7 @@
     "babel-runtime": "6.18.0",
     "md5": "^2.2.1",
     "tangram-cartocss": "cartodb/tangram-carto#master",
+    "tangram": "tangrams/tangram#master",
     "yamljs": "^0.2.8"
   },
   "devDependencies": {
@@ -74,7 +75,6 @@
     "karma-sinon": "1.0.4",
     "mocha": "1.21.4",
     "sinon": "1.10.3",
-    "tangram": "tangrams/tangram#master",
     "uglify-js": "2.4.14",
     "yargs": "1.3.2"
   }
