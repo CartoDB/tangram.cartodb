@@ -1,6 +1,7 @@
 import CCSS from 'tangram-cartocss';
 import yaml from './yaml';
 import md5 from 'md5';
+import Tangram from 'tangram';
 
 var SOURCES = {
     mapnik: {
