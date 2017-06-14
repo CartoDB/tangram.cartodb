@@ -1,6 +1,6 @@
 {
   "name": "tangram.cartodb",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "Library to render webgl maps using tangram and carto.",
   "repository": {
     "type": "git",
