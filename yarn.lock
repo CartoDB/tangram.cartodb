@@ -4080,8 +4080,8 @@ syntax-error@^1.1.1:
     acorn "^4.0.3"
 
 tangram-cartocss@cartodb/tangram-carto#master:
-  version "0.5.5"
-  resolved "https://codeload.github.com/cartodb/tangram-carto/tar.gz/98fb17381ec4102a5c7dc428514d1337ed4abd66"
+  version "0.5.6"
+  resolved "https://codeload.github.com/cartodb/tangram-carto/tar.gz/403320d15ea49603ba6d94fe6112b49c5b9bbb84"
   dependencies:
     babel-preset-env "^1.4.0"
     babel-runtime "6.23.0"
