@@ -1,5 +1,9 @@
 .gitattributes
 
+# logs
+yarn-error.log
+npm-debug.log
+
 # build & test artifacts
 node_modules
 dist/tangram-cartocss.test.js
