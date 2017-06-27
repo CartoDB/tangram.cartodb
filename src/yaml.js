@@ -1,14 +1,5 @@
 import yamljs from 'yamljs';
 
-const SOURCES = {
-    mapnik: {
-        type: 'MVT',
-        url: function( url ) {
-            return url.replace('{layerIndexes}', 'mapnik').replace('.png', '.mvt');
-        }
-    }
-};
-
 const getBaseProperties = function getBaseProperties() {
   return {
     global: {
