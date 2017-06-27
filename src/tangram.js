@@ -45,7 +45,7 @@ TC.prototype = {
     });
   },
 
-  addEvents: (ev) => {
+  addEvents: function (ev) {
     this.tangramLayer.setSelectionEvents(ev);
   },
 
