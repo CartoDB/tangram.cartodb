@@ -1,5 +1,4 @@
 import Carto from './lib/carto-helpers';
-import TH from './lib/tangram-helper';
 import Utils from './lib/utils';
 import TangramCarto from '../src/module';
 var map = window.L.map( 'map' );
