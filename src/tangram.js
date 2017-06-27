@@ -10,7 +10,7 @@ var SOURCES = {
 
 var generateSources = function generateSources(url, subdomains) {
   // TODO: make this dynamic if it is neccessary
-  var source = SOURCES['mapnik'];
+  var source = SOURCES.mapnik;
 
   return {
     type: source.type,
