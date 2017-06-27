@@ -22,10 +22,6 @@
   "scripts": {
     "start": "npm run watch",
     "test": "npm run lint",
-    "test-remote": "./node_modules/karma/bin/karma start --browsers Chrome_travis_ci --single-run",
-    "test-local": "./node_modules/karma/bin/karma start --browsers Chrome --single-run",
-    "karma-start": "./node_modules/karma/bin/karma start --browsers Chrome --no-watch",
-    "karma-run": "./node_modules/karma/bin/karma run --browsers Chrome",
     "lint": "$(npm bin)/jshint src/",
     "build": "npm run build-bundle -- -o dist/tangram.cartodb.debug.js && npm run build-minify",
     "build-debug": "npm run build-bundle -- -o dist/tangram.cartodb.debug.js",
@@ -60,21 +56,8 @@
     "browserify": "14.3.0",
     "browserify-derequire": "0.9.4",
     "budo": "10.0.3",
-    "chai": "1.9.2",
-    "chai-as-promised": "4.1.1",
-    "glob": "4.0.6",
     "jshint": "jshint/jshint#3a8efa979dbb157bfb5c10b5826603a55a33b9ad",
-    "karma": "0.12.23",
-    "karma-browserify": "5.1.0",
-    "karma-chrome-launcher": "0.1.4",
-    "karma-mocha": "0.1.9",
-    "karma-mocha-reporter": "1.0.0",
-    "karma-sauce-launcher": "tangrams/karma-sauce-launcher#firefox-profiles",
-    "karma-sinon": "1.0.4",
-    "mocha": "1.21.4",
-    "sinon": "1.10.3",
-    "uglify-js": "3.0.11",
-    "yargs": "1.3.2"
+    "uglify-js": "3.0.11"
   },
   "browserify": {
     "transform": [["babelify", { "presets": ["es2015"] }]]
