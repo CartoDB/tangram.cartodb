@@ -20,7 +20,6 @@ var generateSources = function generateSources(url, subdomains) {
 };
 
 var TC = function (map, cb) {
-  let self = this;
   this.layer = Tangram.leafletLayer({
     scene: yaml.getBaseFile()
   }).addTo(map);
