@@ -49,6 +49,12 @@ TC.prototype = {
     this.tangramLayer.setSelectionEvents(ev);
   },
 
+  getTotalGeometries: function() {
+    return Object.keys(this.scene.tile_manager.tiles).reduce((sum, tileId) => {
+      return sum + this.scene.tile_manager.tiles[tileId].debug.geometry_count;
+    }, 0);
+  },
+
   addLayer: function (layer, i) {
     let config = CCSS.carto2Draw(layer.meta.cartocss, i);
 
