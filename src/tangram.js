@@ -50,12 +50,9 @@ TC.prototype = {
   },
 
   getTotalGeometries: function() {
-    let sum = 0;
-    for (var tile in this.scene.tile_manager.tiles ) {
-      sum += this.scene.tile_manager.tiles[tile].debug.geometry_count;
-    }
-
-    return sum;
+    return Object.keys(this.scene.tile_manager.tiles).reduce((sum, tileId) => {
+      return sum + this.scene.tile_manager.tiles[tileId].debug.geometry_count;
+    }, 0);
   },
 
   addLayer: function (layer, i) {
