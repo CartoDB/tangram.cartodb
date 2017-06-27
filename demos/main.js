@@ -1,6 +1,6 @@
 import Carto from './lib/carto-helpers';
 import Utils from './lib/utils';
-import TangramCarto from '../src/module';
+import TangramCarto from '../src/tangram';
 var map = window.L.map( 'map' );
 
 window.L.tileLayer( 'http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
