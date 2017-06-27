@@ -43,7 +43,6 @@
   "license": "MIT",
   "dependencies": {
     "md5": "^2.2.1",
-    "tangram": "tangrams/tangram#master",
     "tangram-cartocss": "cartodb/tangram-carto#master",
     "yamljs": "^0.2.8"
   },
@@ -57,6 +56,7 @@
     "browserify-derequire": "0.9.4",
     "budo": "10.0.3",
     "jshint": "jshint/jshint#3a8efa979dbb157bfb5c10b5826603a55a33b9ad",
+    "tangram": "tangrams/tangram#master",
     "uglify-js": "3.0.11"
   },
   "browserify": {
