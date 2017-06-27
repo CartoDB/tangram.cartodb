@@ -20,6 +20,7 @@
   "jquery": true,
   "evil": true,
   "globals": {
+    "Tangram": true,
     "describe": true,
     "it": true
   }
