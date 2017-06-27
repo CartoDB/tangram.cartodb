@@ -31,10 +31,10 @@
     "build": "npm run build-bundle -- -o dist/tangram.cartodb.debug.js && npm run build-minify",
     "build-test": "npm run build-bundle -- -o dist/tangram.cartodb.test.js",
     "build-debug": "npm run build-bundle -- -o dist/tangram.cartodb.debug.js",
-    "build-bundle": "$(npm bin)/browserify src/module.js -t [ babelify --presets [ es2015 ] --plugins transform-runtime ] -t brfs -s TangramCarto -p browserify-derequire --debug",
+    "build-bundle": "$(npm bin)/browserify src/tangram.js -t [ babelify --presets [ es2015 ] --plugins transform-runtime ] -t brfs -s TangramCarto -p browserify-derequire --debug",
     "build-minify": "$(npm bin)/uglifyjs dist/tangram.cartodb.debug.js -c warnings=false -m -o dist/tangram.cartodb.min.js && npm run build-size",
     "build-size": "gzip dist/tangram.cartodb.min.js -c | wc -c | awk '{kb=$1/1024; print kb}' OFMT='%.0fk minified+gzipped'",
-    "watch": "$(npm bin)/budo src/module.js:dist/tangram.cartodb.debug.js demos/main.js:dist/main.js --port 8000 --cors --live -- -t [ babelify --presets [ es2015 ] --plugins transform-runtime ] -t brfs -s TangramCarto"
+    "watch": "$(npm bin)/budo src/tangram.js:dist/tangram.cartodb.debug.js demos/main.js:dist/main.js --port 8000 --cors --live -- -t [ babelify --presets [ es2015 ] --plugins transform-runtime ] -t brfs -s TangramCarto"
   },
   "author": {
     "name": "Carto",
