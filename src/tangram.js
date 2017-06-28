@@ -19,6 +19,19 @@ function TC(map, cb) {
 
 module.exports = TC;
 
+function getSupportedCartoCSSResult(cartoCSS) {
+  var result = { supported: true };
+  try {
+    CCSS.carto2Draw(cartoCSS);
+  } catch (e) {
+    result.supported = false;
+    result.reason = e.message || 'unknown';
+  }
+  return result;
+}
+
+module.exports.getSupportedCartoCSSResult = getSupportedCartoCSSResult;
+
 var SOURCES = {
     mapnik: {
         type: 'MVT'

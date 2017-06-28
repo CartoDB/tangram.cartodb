@@ -21,7 +21,7 @@
   ],
   "scripts": {
     "start": "npm run watch",
-    "test": "npm run lint",
+    "test": "mocha && npm run lint",
     "lint": "$(npm bin)/jshint src/",
     "build": "npm run build-bundle -- -o dist/tangram.cartodb.debug.js && npm run build-minify",
     "build-debug": "npm run build-bundle -- -o dist/tangram.cartodb.debug.js",
@@ -56,6 +56,7 @@
     "browserify-derequire": "0.9.4",
     "budo": "10.0.3",
     "jshint": "jshint/jshint#3a8efa979dbb157bfb5c10b5826603a55a33b9ad",
+    "mocha": "~3.4.2",
     "tangram": "tangrams/tangram#master",
     "uglify-js": "3.0.11"
   }
