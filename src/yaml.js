@@ -1,4 +1,4 @@
-import yamljs from 'yamljs';
+const yamljs = require('yamljs');
 
 const getBaseProperties = function getBaseProperties() {
   return {
@@ -36,7 +36,4 @@ const getBaseFile = function () {
   return URL.createObjectURL( new Blob( [ generateYAML() ] ) );
 };
 
-var yaml;
-export default yaml = {
-  getBaseFile
-};
+module.exports.getBaseFile = getBaseFile;
