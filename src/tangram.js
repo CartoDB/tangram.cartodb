@@ -1,25 +1,8 @@
-import CCSS from 'tangram-cartocss';
-import yaml from './yaml';
-import md5 from 'md5';
+const CCSS = require('tangram-cartocss');
+const yaml = require('./yaml');
+const md5 = require('md5');
 
-var SOURCES = {
-    mapnik: {
-        type: 'MVT'
-    }
-};
-
-var generateSources = function generateSources(url, subdomains) {
-  // TODO: make this dynamic if it is neccessary
-  var source = SOURCES.mapnik;
-
-  return {
-    type: source.type,
-    url: url,
-    url_subdomains: subdomains
-  };
-};
-
-var TC = function (map, cb) {
+function TC(map, cb) {
   this.layer = Tangram.leafletLayer({
     scene: yaml.getBaseFile()
   }).addTo(map);
@@ -32,8 +15,26 @@ var TC = function (map, cb) {
       cb();
     }
   });
+}
 
+module.exports = TC;
+
+var SOURCES = {
+    mapnik: {
+        type: 'MVT'
+    }
 };
+
+function generateSources(url, subdomains) {
+  // TODO: make this dynamic if it is neccessary
+  var source = SOURCES.mapnik;
+
+  return {
+    type: source.type,
+    url: url,
+    url_subdomains: subdomains
+  };
+}
 
 TC.prototype = {
   onLoaded: function (cb) {
@@ -89,5 +90,3 @@ TC.prototype = {
     this.scene.setDataSource('CartoDB', generateSources(url, subdomains));
   }
 };
-
-export default TC;
