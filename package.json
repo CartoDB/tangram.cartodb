@@ -43,7 +43,7 @@
   "license": "MIT",
   "dependencies": {
     "md5": "^2.2.1",
-    "tangram-cartocss": "cartodb/tangram-carto#master",
+    "tangram-cartocss": "cartodb/tangram-carto#dot-properties",
     "yamljs": "^0.2.8"
   },
   "devDependencies": {
