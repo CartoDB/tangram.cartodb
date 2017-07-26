@@ -1,6 +1,8 @@
 const CCSS = require('tangram-cartocss');
 const yaml = require('./yaml');
 const md5 = require('md5');
+const YAML = require('yamljs');
+
 
 function TC(map, cb) {
   this.layer = Tangram.leafletLayer({
@@ -101,5 +103,18 @@ TC.prototype = {
 
   addDataSource: function (url, subdomains) {
     this.scene.setDataSource('CartoDB', generateSources(url, subdomains));
+  },
+
+  toYAML: function () {
+    return YAML.stringify(
+      JSON.parse(
+        JSON.stringify(this.scene.config, (key, value) => {
+          if (typeof value === 'function') {
+            return value.toString();
+          }
+          return value;
+        })
+      ),
+    Number.POSITIVE_INFINITY, 4);
   }
 };
