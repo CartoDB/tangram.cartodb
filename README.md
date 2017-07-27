@@ -70,3 +70,15 @@ It will print the dev url to try the demos.
 ```
 
 We use ES6 and Node > 6.X, I'm using 7.0 right now.
+
+
+## Testing
+
+Serve our testing application with 
+
+```sh
+yarn watch
+```
+
+This will open a dev server in `http://10.0.32.188:8000` where you can load custom maps.
+

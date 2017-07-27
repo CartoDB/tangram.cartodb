@@ -12,28 +12,28 @@ const getBaseProperties = function getBaseProperties() {
     },
     layers: {},
     styles: {
-        polygons_blend: {
-            base: 'polygons',
-            blend: 'overlay'
-        },
-        lines_blend: {
-            base: 'lines',
-            blend: 'overlay'
-        },
-        points_blend: {
-            base: 'points',
-            blend: 'overlay'
-        }
+      polygons_blend: {
+        base: 'polygons',
+        blend: 'overlay'
+      },
+      lines_blend: {
+        base: 'lines',
+        blend: 'overlay'
+      },
+      points_blend: {
+        base: 'points',
+        blend: 'overlay'
+      }
     }
   };
 };
 
 const generateYAML = function () {
-  return yamljs.stringify( getBaseProperties(), 3);
+  return yamljs.stringify(getBaseProperties(), 3);
 };
 
 const getBaseFile = function () {
-  return URL.createObjectURL( new Blob( [ generateYAML() ] ) );
+  return URL.createObjectURL(new Blob([generateYAML()]));
 };
 
 module.exports.getBaseFile = getBaseFile;
