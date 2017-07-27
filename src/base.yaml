@@ -5,5 +5,5 @@ cameras:
     type: flat
     active: true
 styles:
-secene:
+scene:
   animated: false
