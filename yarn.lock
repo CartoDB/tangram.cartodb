@@ -3405,7 +3405,7 @@ syntax-error@^1.1.1:
 
 tangram-cartocss@cartodb/tangram-carto#master:
   version "0.5.7"
-  resolved "https://codeload.github.com/cartodb/tangram-carto/tar.gz/2a6d40b7369f045bbfed8107bf041a4b31fdb2b4"
+  resolved "https://codeload.github.com/cartodb/tangram-carto/tar.gz/097ca072aadfe04e0c8651efb850406e3a7f8e5e"
   dependencies:
     babel-preset-env "^1.4.0"
     babel-runtime "6.23.0"
