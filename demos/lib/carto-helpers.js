@@ -30,8 +30,7 @@ Carto.getVizJSON = function (url) {
 
 Carto.generateJSONPUri = function (vizJSON) {
   let source = Carto.generateSource(vizJSON.datasource);
-
-  return source.substring(0, source.indexOf('mapnik')).replace(/-/g, '_') + 'jsonp?&stat_tag=' + vizJSON.datasource.stat_tag;
+  return source.substring(0, source.indexOf('mapnik')) + 'jsonp?&stat_tag=' + vizJSON.datasource.stat_tag;
 }
 
 Carto.getJSONP = function (url) {
