@@ -2,7 +2,7 @@ import Carto from './lib/carto-helpers';
 import Utils from './lib/utils';
 import TangramCarto from '../src/tangram';
 
-const MAP_URI = 'https://iago-carto.carto.com/builder/78ef5f8a-27e6-47c9-9c8b-51ef539a529e/embed';
+const MAP_URI = 'https://dmanzanares.carto.com/builder/68e825ce-5d96-42db-902f-e590fa69911a/embed';
 const ZOOM = 2;
 const CENTER = [42.34, -71.0];
 const BASE_MAP = 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png';

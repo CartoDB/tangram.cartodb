@@ -1,8 +1,14 @@
 const CCSS = require('tangram-cartocss');
 const yaml = require('./yaml');
-const md5 = require('md5');
 const YAML = require('yamljs');
 
+
+const tangramReference = require('tangram-reference').load();
+const carto = require('carto');
+const CartoCSSRenderer = new carto.RendererJS({
+    reference: tangramReference,
+    strict: true
+});
 
 function TC(map, cb) {
   this.layer = Tangram.leafletLayer({
@@ -24,7 +30,12 @@ module.exports = TC;
 function getSupportedCartoCSSResult(cartoCSS) {
   var result = { supported: true };
   try {
-    CCSS.carto2Draw(cartoCSS);
+    let layers = CartoCSSRenderer.render(cartoCSS).getLayers();
+    //CartoCSSRenderer make most checks against tangram-reference, but not all of them,
+    //calling carto2Draw is the safe and easy approach, but it implies unnecesary overhead
+    layers.forEach((l, i) => {
+      CCSS.carto2Draw(l, i);
+    });
   } catch (e) {
     result.supported = false;
     result.reason = e.message || 'unknown';
@@ -70,31 +81,32 @@ TC.prototype = {
     }, 0);
   },
 
-  addLayer: function (layer, i) {
-    let config = CCSS.carto2Draw(layer.meta.cartocss, i);
+  addLayer: function (layer) {
+    let layers = CartoCSSRenderer.render(layer.meta.cartocss).getLayers();
 
-    config.forEach(l => {
+    layers.forEach((l, i) => {
+      const yaml = CCSS.carto2Draw(l, i);
       let ly = {
         data: {
           layer: layer.id,
           source: 'CartoDB'
         },
-        draw: l.draw,
-        visible: layer.visible
+        draw: yaml.draw,
+        visible: l.visible
       };
 
-      const layerName = md5(layer.id + l.name);
+      const layerName = `layer_${i}`;
 
       this.scene.config.layers[layerName] = ly;
 
       Object.assign(
         this.scene.config.styles,
-        l.styles
+        yaml.styles
       );
 
       Object.assign(
         this.scene.config.textures,
-        l.textures
+        yaml.textures
       );
     });
 
