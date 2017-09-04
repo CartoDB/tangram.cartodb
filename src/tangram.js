@@ -81,6 +81,8 @@ TC.prototype = {
     }, 0);
   },
 
+
+  //We receive a Builder's layer, that is composed by multiple sub-layers (draw-groups)
   addLayer: function (layer) {
     let layers = CartoCSSRenderer.render(layer.meta.cartocss).getLayers();
 
