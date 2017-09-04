@@ -53,5 +53,5 @@ Carto.generateSource = function (datasource) {
   return datasource.maps_api_template.replace( '{user}', datasource.user_name ) +
                 '/api/v1/map/named/' +
                 id.replace(/-/g, '_') +
-                '/mapnik/{z}/{x}/{y}.mvt';
+                '/mapnik/{z}/{x}/{y}.mvt?config=' + encodeURIComponent(JSON.stringify({buffersize: { mvt: 0 }}));
 }

@@ -1,8 +1,6 @@
 const CCSS = require('tangram-cartocss');
 const yaml = require('./yaml');
-const md5 = require('md5');
 const YAML = require('yamljs');
-
 
 function TC(map, cb) {
   this.layer = Tangram.leafletLayer({
@@ -22,14 +20,7 @@ function TC(map, cb) {
 module.exports = TC;
 
 function getSupportedCartoCSSResult(cartoCSS) {
-  var result = { supported: true };
-  try {
-    CCSS.carto2Draw(cartoCSS);
-  } catch (e) {
-    result.supported = false;
-    result.reason = e.message || 'unknown';
-  }
-  return result;
+  return CCSS.getSupportResult(cartoCSS);
 }
 
 module.exports.getSupportedCartoCSSResult = getSupportedCartoCSSResult;
@@ -70,31 +61,32 @@ TC.prototype = {
     }, 0);
   },
 
-  addLayer: function (layer, i) {
-    let config = CCSS.carto2Draw(layer.meta.cartocss, i);
 
-    config.forEach(l => {
+  //We receive a Builder's layer, that is composed by multiple sub-layers (draw-groups)
+  addLayer: function (layer) {
+
+    CCSS.cartoCssToDrawGroups(layer.meta.cartocss).forEach((scene, i) => {
       let ly = {
         data: {
           layer: layer.id,
           source: 'CartoDB'
         },
-        draw: l.draw,
+        draw: scene.draw,
         visible: layer.visible
       };
 
-      const layerName = md5(layer.id + l.name);
+      const layerName = `layer_${i}`;
 
       this.scene.config.layers[layerName] = ly;
 
       Object.assign(
         this.scene.config.styles,
-        l.styles
+        scene.styles
       );
 
       Object.assign(
         this.scene.config.textures,
-        l.textures
+        scene.textures
       );
     });
 
