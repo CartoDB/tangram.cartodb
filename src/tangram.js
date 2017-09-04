@@ -92,7 +92,7 @@ TC.prototype = {
           source: 'CartoDB'
         },
         draw: yaml.draw,
-        visible: l.visible
+        visible: layer.visible
       };
 
       const layerName = `layer_${i}`;
