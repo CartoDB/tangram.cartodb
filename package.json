@@ -42,7 +42,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "tangram-cartocss": "cartodb/tangram-cartocss#cartocss-support-api",
+    "tangram-cartocss": "0.8.0",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
