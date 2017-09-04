@@ -1,4 +1,4 @@
-# Tangram.cartodb ![build](https://travis-ci.org/CartoDB/tangram.cartodb.svg?branch=master)
+# Tangram.cartodb [![Build Status](https://travis-ci.org/CartoDB/tangram.cartodb.svg?branch=master)](https://travis-ci.org/CartoDB/tangram.cartodb)
 
 ![Uniform style](/demos/images/embed.png)
 
