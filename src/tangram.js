@@ -84,10 +84,10 @@ TC.prototype = {
 
   //We receive a Builder's layer, that is composed by multiple sub-layers (draw-groups)
   addLayer: function (layer) {
-    let layers = CartoCSSRenderer.render(layer.meta.cartocss).getLayers();
+    let drawLayers = CartoCSSRenderer.render(layer.meta.cartocss).getLayers();
 
-    layers.forEach((l, i) => {
-      const yaml = CCSS.carto2Draw(l, i);
+    drawLayers.forEach((drawLayer, i) => {
+      const yaml = CCSS.carto2Draw(drawLayer, i);
       let ly = {
         data: {
           layer: layer.id,
