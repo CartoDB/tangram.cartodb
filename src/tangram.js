@@ -72,6 +72,7 @@ TC.prototype = {
           source: 'CartoDB'
         },
         draw: scene.draw,
+        filter: scene.filter,
         visible: layer.visible
       };
 
