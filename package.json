@@ -43,7 +43,7 @@
   "license": "MIT",
   "dependencies": {
     "tangram-cartocss": "~0.9.0",
-    "yamljs": "^0.3.0"
+    "yamljs": "~0.3.0"
   },
   "devDependencies": {
     "babel-plugin-transform-runtime": "6.23.0",
