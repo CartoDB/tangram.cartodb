@@ -63,9 +63,9 @@ TC.prototype = {
 
 
   //We receive a Builder's layer, that is composed by multiple sub-layers (draw-groups)
-  addLayer: function (layer) {
+  addLayer: function (layer, superLayerOrder) {
+    CCSS.cartoCssToDrawGroups(layer.meta.cartocss, superLayerOrder).forEach((scene, i) => {
 
-    CCSS.cartoCssToDrawGroups(layer.meta.cartocss).forEach((scene, i) => {
       let ly = {
         data: {
           layer: layer.id,
@@ -76,7 +76,7 @@ TC.prototype = {
         visible: layer.visible
       };
 
-      const layerName = `layer_${i}`;
+      const layerName = `layer_${layer.id}_${i}`;
 
       this.scene.config.layers[layerName] = ly;
 
@@ -90,7 +90,6 @@ TC.prototype = {
         scene.textures
       );
     });
-
     this.scene.updateConfig({rebuild: true});
   },
 
