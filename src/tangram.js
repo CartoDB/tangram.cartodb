@@ -2,9 +2,9 @@ const CCSS = require('tangram-cartocss');
 const yaml = require('./yaml');
 const YAML = require('yamljs');
 
-function TC(map, cb) {
+function TC(map, cb, showErrorTiles) {
   this.layer = Tangram.leafletLayer({
-    scene: yaml.getBaseFile()
+    scene: yaml.getBaseFile(showErrorTiles)
   }).addTo(map);
 
   this.scene = this.layer.scene;
@@ -26,9 +26,9 @@ function getSupportedCartoCSSResult(cartoCSS) {
 module.exports.getSupportedCartoCSSResult = getSupportedCartoCSSResult;
 
 var SOURCES = {
-    mapnik: {
-        type: 'MVT'
-    }
+  mapnik: {
+    type: 'MVT'
+  }
 };
 
 function generateSources(url, subdomains) {
@@ -107,6 +107,6 @@ TC.prototype = {
           return value;
         })
       ),
-    Number.POSITIVE_INFINITY, 4);
+      Number.POSITIVE_INFINITY, 4);
   }
 };

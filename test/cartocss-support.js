@@ -14,7 +14,7 @@ describe('TC', function() {
             var cartoCSS = '#layer { polygon-gamma-method: power; }';
             var result = TC.getSupportedCartoCSSResult(cartoCSS);
             assert.equal(result.supported, false);
-            assert.equal(result.reason, ':1:9 Unrecognized rule: polygon-gamma-method');
+            assert.ok(result.reason.indexOf('polygon-gamma-method')>=0);
         });
     });
 });
