@@ -17,7 +17,7 @@ const getBaseProperties = function getBaseProperties(showErrorTiles) {
           source: 'CartoDB'
         },
         draw: {
-          drawGroupError1: { color: 'rgba(255,0,0,0.5)' }
+          errorTileSquareStyle: { color: 'rgba(255,0,0,0.5)' }
         },
         visible: showErrorTiles
       },
@@ -27,7 +27,7 @@ const getBaseProperties = function getBaseProperties(showErrorTiles) {
           source: 'CartoDB'
         },
         draw: {
-          drawGroupError1: { color: 'rgba(255,0,0,0.5)' }
+          errorTileStripesStyle: { color: 'rgba(255,0,0,0.5)' }
         },
         visible: showErrorTiles
       }
@@ -38,7 +38,7 @@ const getBaseProperties = function getBaseProperties(showErrorTiles) {
         blend: 'overlay',
         blend_order: 99999
       },
-      errorTileStripesLayer: {
+      errorTileStripesStyle: {
         base: 'lines',
         blend: 'overlay',
         blend_order: 99999 + 1
@@ -60,8 +60,8 @@ const getBaseProperties = function getBaseProperties(showErrorTiles) {
   };
 };
 
-const generateYAML = function () {
-  return yamljs.stringify(getBaseProperties(), 3);
+const generateYAML = function (showErrorTiles) {
+  return yamljs.stringify(getBaseProperties(showErrorTiles), 3);
 };
 
 const getBaseFile = function (showErrorTiles) {
