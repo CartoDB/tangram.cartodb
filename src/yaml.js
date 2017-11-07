@@ -17,17 +17,19 @@ const getBaseProperties = function getBaseProperties(showErrorTiles) {
           source: 'CartoDB'
         },
         draw: {
-          errorTileSquareStyle: { color: 'rgba(255,0,0,0.5)' }
+          errorTileSquareStyle: { color: 'rgba(255,0,0,0.1)' }
         },
         visible: showErrorTiles
       },
       errorTileStripesLayer: {
         data: {
-          layer: 'errorTileSquareLayer',
+          layer: 'errorTileStripesLayer',
           source: 'CartoDB'
         },
         draw: {
-          errorTileStripesStyle: { color: 'rgba(255,0,0,0.5)' }
+          errorTileStripesStyle: { color: 'rgba(0,255,0,1)',
+          width: '1px'
+        }
         },
         visible: showErrorTiles
       }
