@@ -1,4 +1,7 @@
-# Tangram.cartodb [![Build Status](https://travis-ci.org/CartoDB/tangram.cartodb.svg?branch=master)](https://travis-ci.org/CartoDB/tangram.cartodb)
+# [DEPRECATED] Tangram.cartodb [![Build Status](https://travis-ci.org/CartoDB/tangram.cartodb.svg?branch=master)](https://travis-ci.org/CartoDB/tangram.cartodb) ![No Maintenance Intended](https://img.shields.io/badge/No%20Maintenance%20Intended-%E2%9C%95-red.svg)
+
+This is no longer supported.
+
 
 ![Uniform style](/demos/images/embed.png)
 
@@ -74,7 +77,7 @@ We use ES6 and Node > 6.X, I'm using 7.0 right now.
 
 ## Testing
 
-Serve our testing application with 
+Serve our testing application with
 
 ```sh
 yarn watch
